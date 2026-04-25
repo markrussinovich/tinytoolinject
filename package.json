@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node --test",
-    "demo": "node src/demo.js"
+    "demo": "node src/demo.js",
+    "serve": "node scripts/serve.js",
+    "site:test": "node scripts/site-smoke-test.js"
   }
 }

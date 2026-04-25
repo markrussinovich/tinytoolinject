@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="TinyToolInject demonstrates a README prompt-injection attack against line-prefix summary parsing and a hardened parser that rejects it.">
+    <title>TinyToolInject</title>
+    <link rel="stylesheet" href="./styles.css">
+  </head>
+  <body>
+    <main class="shell">
+      <section class="workspace" aria-labelledby="page-title">
+        <div class="workspace__intro">
+          <p class="eyebrow">Prompt-injection harness</p>
+          <h1 id="page-title">TinyToolInject</h1>
+          <p class="lede">A live, deterministic reproduction of a README injection that hijacks AI-generated tool summaries, paired with a hardened parser that blocks the same payload.</p>
+        </div>
+
+        <div class="status-strip" aria-label="Demo status">
+          <div>
+            <span class="label">Fixture</span>
+            <strong>Geoffrey README</strong>
+          </div>
+          <div>
+            <span class="label">Target</span>
+            <strong>SUMMARY / FEATURES parser</strong>
+          </div>
+          <div>
+            <span class="label">Result</span>
+            <strong id="result-state">Running</strong>
+          </div>
+        </div>
+      </section>
+
+      <section class="comparison" aria-label="Prompt injection comparison">
+        <article class="panel panel--readme">
+          <div class="panel__heading">
+            <div>
+              <p class="eyebrow">Untrusted README</p>
+              <h2>Injected source</h2>
+            </div>
+            <button class="icon-button" id="copy-readme" type="button" aria-label="Copy README payload" title="Copy README payload">⧉</button>
+          </div>
+          <pre class="code-surface"><code id="readme-source"></code></pre>
+        </article>
+
+        <article class="panel panel--result vulnerable" aria-labelledby="vulnerable-title">
+          <div class="panel__heading">
+            <div>
+              <p class="eyebrow">Current parser shape</p>
+              <h2 id="vulnerable-title">Vulnerable output</h2>
+            </div>
+            <span class="badge badge--risk">Hijacked</span>
+          </div>
+          <p class="summary" id="vulnerable-summary"></p>
+          <ul class="features" id="vulnerable-features"></ul>
+          <pre class="code-surface code-surface--small"><code id="vulnerable-raw"></code></pre>
+        </article>
+
+        <article class="panel panel--result hardened" aria-labelledby="hardened-title">
+          <div class="panel__heading">
+            <div>
+              <p class="eyebrow">Sentinel parser</p>
+              <h2 id="hardened-title">Hardened output</h2>
+            </div>
+            <span class="badge badge--safe">Accepted</span>
+          </div>
+          <p class="summary" id="hardened-summary"></p>
+          <ul class="features" id="hardened-features"></ul>
+          <pre class="code-surface code-surface--small"><code id="hardened-raw"></code></pre>
+        </article>
+      </section>
+
+      <section class="checks" aria-labelledby="checks-title">
+        <div>
+          <p class="eyebrow">What the browser proves</p>
+          <h2 id="checks-title">Execution checks</h2>
+        </div>
+        <ol id="checks-list" class="checks__list"></ol>
+      </section>
+    </main>
+
+    <script type="module" src="./app.js"></script>
+  </body>
+</html>
