@@ -1,0 +1,10 @@
+{
+  "name": "tinytooltown-summary-injection-harness",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "test": "node --test",
+    "demo": "node src/demo.js"
+  }
+}
